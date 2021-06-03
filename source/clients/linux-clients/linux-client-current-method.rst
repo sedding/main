@@ -173,7 +173,7 @@ Lade den Schlüssel des Archivs herunter und installiere ihn:
 
 .. code::
 
-   wget -O https://archive.linuxmuster.net/archive.linuxmuster.net.key | sudo apt-add key -
+   wget -O - https://archive.linuxmuster.net/archive.linuxmuster.net.key | sudo apt-key add -
 
 Aktualisiere die Paketinformationen mit ``sudo apt update``.
 
@@ -218,7 +218,7 @@ Rufe hierzu den Befehl auf:
 
    sudo linuxmuster-linuxclient7 prepare-image -y
 
-Der Client erhält daruch Aktualisierungen und es werden einige Dateien (journalctl & apt-caches) aufgeräumt, um Speicherplatz im Image zu sparen.
+Der Client erhält dadurch Aktualisierungen und es werden einige Dateien (journalctl & apt-caches) aufgeräumt, um Speicherplatz im Image zu sparen.
 
 .. hint::
 
@@ -269,7 +269,7 @@ Solltest du versehentlich auf ``ja`` ausgewählt haben, kannst du die Anmeldung 
 
   sudo linuxmuster-linuxclient7 upgrade
 
-Im Anschluss startest Linux-Client neu und erstellst wiederum, wie zuvor beschrieben, ein neues Image. Auch hier: wählie NICH ``neues Image erstellen``, sondern ``aktuelles Image ersetzen`` aus.
+Im Anschluss startest Du den Linux-Client neu und erstellst wiederum, wie zuvor beschrieben, ein neues Image. Auch hier: wähle NICHT ``neues Image erstellen``, sondern ``aktuelles Image ersetzen`` aus.
 
 
 Serverseitige Anpassungen
@@ -281,7 +281,7 @@ Damit der Linux-Client die Drucker automatisch ermittelt und der Proxy korrekt e
 Proxy-Einstellungen
 -------------------
 
-Bei der Anmeldung vom Linux-Client werden sog. Hook-Skripte ausgeführt.
+Bei der Anmeldung am Linux-Client werden sog. Hook-Skripte ausgeführt.
 
 Diese finden sich auf dem linuxmuster Server im Verzeichnis: ``/var/lib/samba/sysvol/linuxmuster.lan/scripts/default-school/custom/linux/``.
 
@@ -325,9 +325,9 @@ Drucker vorbereiten
 
    Dies sind nur kurze allgemeine Hinweise. Im Kapitel :ref:`howto-install-printer-label` findet sich eine ausführliche Anleitung.
 
-Damit die Drucker richtig gefunden und via GPO administriert werden können, ist es erforderlich, dass jeder Drucker im CUPS-Server als Namen exat seinen Hostnamen aus der Geräteverwaltung bekommt.
+Damit die Drucker richtig gefunden und via GPO administriert werden können, ist es erforderlich, dass jeder Drucker im CUPS-Server als Namen exakt seinen Hostnamen aus der Geräteverwaltung bekommt.
 
-Die Zuordnung von Druckern zu Computern geschieht auf Basis von Gruppen im Active Directory. Im Kapitel :ref:`howto-install-printer-label` gibt es weiter Informationen dazu.
+Die Zuordnung von Druckern zu Computern geschieht auf Basis von Gruppen im Active Directory. Im Kapitel :ref:`howto-install-printer-label` gibt es weitere Informationen dazu.
 
 Damit auf jedem Rechner nur die Drucker angezeigt werden, die ihm auch zugeordnet wurden, muss auf dem Server in der Datei ``/etc/cups/cupsd.conf`` der Eintrag ``Browsing On`` auf ``Browsing Off`` umgestellt werden. Tut man dies nicht, werden auf jedem Rechner ALLE Drucker angezeigt, nicht nur die ihm zugeteilten.
 
